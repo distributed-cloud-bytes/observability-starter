@@ -29,3 +29,7 @@ services:
       - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
     depends_on:
       - prometheus
+
+networks:
+  default:
+    name: observability-default

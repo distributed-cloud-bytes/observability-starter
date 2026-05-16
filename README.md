@@ -16,7 +16,14 @@ cd observability-starter
 ## Quick start
 
 ```bash
-docker compose up -d
+make up
+# or: docker compose up -d
+```
+
+With [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter) on shared network `platform-dev`:
+
+```bash
+make up-with-devops
 ```
 
 | UI | URL | Default login |
@@ -26,16 +33,9 @@ docker compose up -d
 
 ## Scrape your applications
 
-Edit `prometheus/prometheus.yml` and add a `scrape_configs` job for your service.
+Default `prometheus/prometheus.yml` scrapes Prometheus only. Copy jobs from **`prometheus/prometheus.example.yml`** into `prometheus/prometheus.yml`.
 
-Spring Boot (Micrometer) example:
-
-```yaml
-- job_name: my-service
-  metrics_path: /actuator/prometheus
-  static_configs:
-    - targets: ["host.docker.internal:8080"]
-```
+See **[docs/scrape-targets.md](docs/scrape-targets.md)** for Spring, generic `/metrics`, and Redpanda examples.
 
 ## Layout
 
@@ -50,7 +50,7 @@ docs/                 Integration with devops-starter
 
 Event-driven local stack: [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter)
 
-See [docs/integrate-devops-starter.md](docs/integrate-devops-starter.md).
+See [docs/integrate-devops-starter.md](docs/integrate-devops-starter.md) and [docs/alerts.md](docs/alerts.md).
 
 ## Contributing
 

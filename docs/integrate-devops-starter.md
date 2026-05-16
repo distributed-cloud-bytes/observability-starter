@@ -1,14 +1,21 @@
 # Integrate devops-starter
 
-1. Clone [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter)
-2. Start the dev stack: `cd environments/dev/compose && docker compose up -d`
-3. Start this observability stack: `docker compose up -d`
-4. Add scrape jobs in `prometheus/prometheus.yml` for services publishing metrics on the host
+1. Start [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter):
 
-Published ports from devops-starter (defaults):
+   ```bash
+   make up
+   ```
 
-| Service | Host port |
-|---------|-----------|
-| Kafka API | 19092 |
-| Schema Registry | 18081 |
-| Postgres | 5433 |
+   This creates Docker network **`platform-dev`**.
+
+2. Start observability with the network overlay:
+
+   ```bash
+   docker compose -f docker-compose.yml -f docker-compose.platform-network.yml up -d
+   ```
+
+3. Merge scrape jobs from `prometheus/prometheus.example.yml` into `prometheus/prometheus.yml`.
+
+4. Open Grafana at http://localhost:3000
+
+Full walkthrough: [devops-starter/docs/getting-started-full-stack.md](https://github.com/distributed-cloud-bytes/devops-starter/blob/main/docs/getting-started-full-stack.md)

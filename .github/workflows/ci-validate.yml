@@ -23,4 +23,6 @@ jobs:
           PY
 
       - name: Validate compose
-        run: docker compose config >/dev/null
+        run: |
+          docker compose config >/dev/null
+          docker compose -f docker-compose.yml -f docker-compose.platform-network.yml config >/dev/null

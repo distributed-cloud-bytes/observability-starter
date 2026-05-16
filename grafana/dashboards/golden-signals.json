@@ -3,15 +3,15 @@
   "uid": "dcb-golden-signals",
   "timezone": "browser",
   "schemaVersion": 39,
-  "version": 1,
+  "version": 2,
   "refresh": "10s",
   "templating": {
     "list": [
       {
-        "name": "service",
+        "name": "job",
         "type": "query",
         "datasource": "Prometheus",
-        "query": "label_values(http_server_requests_seconds_count, application)",
+        "query": "label_values(up, job)",
         "refresh": 1,
         "includeAll": true,
         "multi": true
@@ -21,23 +21,34 @@
   "panels": [
     {
       "type": "timeseries",
-      "title": "HTTP request rate",
+      "title": "HTTP request rate (Micrometer)",
       "gridPos": { "h": 8, "w": 12, "x": 0, "y": 0 },
       "targets": [
         {
-          "expr": "sum(rate(http_server_requests_seconds_count{application=~\"$service\"}[1m]))",
-          "legendFormat": "rps"
+          "expr": "sum by (job) (rate(http_server_requests_seconds_count{job=~\"$job\"}[1m]))",
+          "legendFormat": "{{job}}"
         }
       ]
     },
     {
       "type": "timeseries",
-      "title": "HTTP 5xx rate",
+      "title": "HTTP request rate (generic)",
       "gridPos": { "h": 8, "w": 12, "x": 12, "y": 0 },
       "targets": [
         {
-          "expr": "sum(rate(http_server_requests_seconds_count{application=~\"$service\",status=~\"5..\"}[1m]))",
-          "legendFormat": "5xx rps"
+          "expr": "sum by (job) (rate(http_requests_total{job=~\"$job\"}[1m]))",
+          "legendFormat": "{{job}}"
+        }
+      ]
+    },
+    {
+      "type": "timeseries",
+      "title": "HTTP 5xx (Micrometer)",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 8 },
+      "targets": [
+        {
+          "expr": "sum by (job) (rate(http_server_requests_seconds_count{job=~\"$job\",status=~\"5..\"}[1m]))",
+          "legendFormat": "{{job}} 5xx"
         }
       ]
     }

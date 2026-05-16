@@ -1,0 +1,15 @@
+# Use with devops-starter (network platform-dev must exist):
+#   docker compose -f docker-compose.yml -f docker-compose.platform-network.yml up -d
+
+services:
+  prometheus:
+    networks:
+      - platform-dev
+  grafana:
+    networks:
+      - platform-dev
+
+networks:
+  platform-dev:
+    external: true
+    name: platform-dev
