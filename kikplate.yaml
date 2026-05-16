@@ -1,0 +1,14 @@
+name: Observability Starter
+description: >
+  Open-source Prometheus and Grafana starter with provisioning, golden-signals dashboard,
+  and example HTTP alert rules for microservices and event-driven platforms.
+category: devops
+owner: distributed-cloud-bytes
+tags:
+  - observability
+  - prometheus
+  - grafana
+  - metrics
+  - alerting
+  - devops
+  - platform-starter
