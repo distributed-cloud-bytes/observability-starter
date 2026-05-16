@@ -2,6 +2,15 @@
 
 Generic **observability** starter from [Distributed Cloud Bytes](https://github.com/distributed-cloud-bytes): Prometheus + Grafana with provisioning, sample dashboard, and alert rules.
 
+## Standalone or combined?
+
+| Mode | What you do | Needs the other repo? |
+|------|-------------|------------------------|
+| **Standalone** | Clone this repo → `make up` → add scrape targets for **your** apps | **No** |
+| **With devops-starter** | Start devops-starter first, then `make up-with-devops` | Optional — only if you want Kafka/Postgres locally |
+
+Each repository is independent. Default Compose does not require [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter).
+
 ## Clone
 
 ```bash
@@ -18,12 +27,6 @@ cd observability-starter
 ```bash
 make up
 # or: docker compose up -d
-```
-
-With [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter) on shared network `platform-dev`:
-
-```bash
-make up-with-devops
 ```
 
 | UI | URL | Default login |
@@ -46,11 +49,13 @@ grafana/dashboards/   Sample golden-signals dashboard
 docs/                 Integration with devops-starter
 ```
 
-## Companion starter
+## Optional: run with devops-starter
 
-Event-driven local stack: [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter)
+1. In [devops-starter](https://github.com/distributed-cloud-bytes/devops-starter): `make up` (creates network `platform-dev`)
+2. In this repo: `make up-with-devops`
+3. Follow [docs/integrate-devops-starter.md](docs/integrate-devops-starter.md)
 
-See [docs/integrate-devops-starter.md](docs/integrate-devops-starter.md) and [docs/alerts.md](docs/alerts.md).
+Alerts: [docs/alerts.md](docs/alerts.md). Full walkthrough: [devops-starter — getting-started-full-stack](https://github.com/distributed-cloud-bytes/devops-starter/blob/main/docs/getting-started-full-stack.md).
 
 ## Contributing
 
