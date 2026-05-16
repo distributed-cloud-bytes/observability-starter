@@ -1,0 +1,26 @@
+name: CI Validate
+
+on:
+  pull_request:
+  push:
+    branches: [main, feat/**]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate YAML
+        run: |
+          pip install pyyaml
+          python - <<'PY'
+          import pathlib, yaml
+          root = pathlib.Path(".")
+          for path in list(root.rglob("*.yml")) + list(root.rglob("*.yaml")):
+              yaml.safe_load(path.read_text(encoding="utf-8"))
+          print("YAML OK")
+          PY
+
+      - name: Validate compose
+        run: docker compose config >/dev/null
