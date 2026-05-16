@@ -4,6 +4,7 @@ description: >
   and example HTTP alert rules for microservices and event-driven platforms.
 category: devops
 owner: distributed-cloud-bytes
+verification_token: c4251928-a0af-4a17-a3e1-78a790d2479c
 tags:
   - observability
   - prometheus
