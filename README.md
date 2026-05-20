@@ -3,6 +3,14 @@
 [![View on KikPlate](https://img.shields.io/static/v1?label=KikPlate&message=observability-starter&color=0366d6&style=flat-square)](https://kikplate.dev/plates/observability-starter)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 
+[![Documented](https://img.shields.io/badge/Documented-yes-0366d6?style=flat-square)](docs/README.md)
+[![Docker Ready](https://img.shields.io/badge/Docker%20Ready-yes-0366d6?style=flat-square)](docs/operations.md)
+[![Well Tested](https://img.shields.io/badge/Well%20Tested-CI-green?style=flat-square)](.github/workflows/ci-validate.yml)
+[![Cloud Native](https://img.shields.io/badge/Cloud%20Native-yes-0366d6?style=flat-square)](docs/architecture.md)
+[![Beginner Friendly](https://img.shields.io/badge/Beginner%20Friendly-yes-0366d6?style=flat-square)](docs/README.md)
+[![Production Ready](https://img.shields.io/badge/Production%20Ready-local%20dev-orange?style=flat-square)](docs/operations.md)
+[![Security Friendly](https://img.shields.io/badge/Security%20Friendly-SECURITY.md-blue?style=flat-square)](SECURITY.md)
+
 Generic **observability** starter from [Distributed Cloud Bytes](https://github.com/distributed-cloud-bytes): Prometheus + Grafana with provisioning, sample dashboard, and alert rules.
 
 ## Overview
@@ -107,6 +115,7 @@ kikplate scaffold distributed-cloud-bytes/observability-starter my-observability
 | [Integrate devops-starter](docs/integrate-devops-starter.md) | Run on shared Docker network `platform-dev` with the Kafka stack |
 | [Full stack walkthrough](https://github.com/distributed-cloud-bytes/devops-starter/blob/main/docs/getting-started-full-stack.md) | Order of operations for devops-starter plus observability-starter |
 | [Contributing](CONTRIBUTING.md) | Fork, branch, PR expectations, and doc maintenance |
+| [Kikplate badges](docs/BADGES.md) | Badge slugs and how to request Official on Kikplate |
 
 ---
 
