@@ -115,7 +115,6 @@ kikplate scaffold distributed-cloud-bytes/observability-starter my-observability
 | [Integrate devops-starter](docs/integrate-devops-starter.md) | Run on shared Docker network `platform-dev` with the Kafka stack |
 | [Full stack walkthrough](https://github.com/distributed-cloud-bytes/devops-starter/blob/main/docs/getting-started-full-stack.md) | Order of operations for devops-starter plus observability-starter |
 | [Contributing](CONTRIBUTING.md) | Fork, branch, PR expectations, and doc maintenance |
-| [Kikplate badges](docs/BADGES.md) | Badge slugs and how to request Official on Kikplate |
 
 ---
 
